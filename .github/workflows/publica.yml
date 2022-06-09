@@ -1,4 +1,4 @@
-name: dumb-push-to-docker-hub
+name: push-to-docker-hub-with-cache
 on: push
 jobs:
   my-job:
@@ -23,6 +23,9 @@ jobs:
         with: 
           context: .
           file: ./Dockerfile
+          builder: $ {{ steps.buildx.outputs.name }}
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME}}/buna-lume:latest
+          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/buna-lume:buildcache
+          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/buna-lume:buildcache,mode=max
 
