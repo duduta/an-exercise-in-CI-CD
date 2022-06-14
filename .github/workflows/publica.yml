@@ -1,7 +1,7 @@
 name: push-to-docker-hub-with-cache
 on: push
 jobs:
-  myjob:
+  push-to-docker-hub-with-cache:
     runs-on: ubuntu-latest
     
     steps:
