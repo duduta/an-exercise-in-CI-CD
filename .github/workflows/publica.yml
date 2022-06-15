@@ -30,8 +30,8 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           push: true
           tags: ghcr.io/${{ github.actor }}/buna-lume:latest
-          cache-from: type=registry,ref=ghcr.io/${{ github.actor }}/buna-lume:buildcache
-          cache-to: type=registry,ref=ghcr.io/${{ github.actor }}/buna-lume:buildcache,mode=max
+            # cache-from: type=registry,ref=ghcr.io/${{ github.actor }}/buna-lume:buildcache
+            # cache-to: type=registry,ref=ghcr.io/${{ github.actor }}/buna-lume:buildcache,mode=max
 
   versions-are-pushed-to-docker-hub:
     runs-on: ubuntu-latest
