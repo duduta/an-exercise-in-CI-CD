@@ -7,7 +7,7 @@ This repo exemplifies several possible workflows, starting from the naive to the
 
 2. naive push + cache
 
-3. wip: only versions are pushed to Docker Hub. the rest are pushed to Github Registry
+3. only versions are pushed to Docker Hub. the rest are pushed to Github Registry
 
 
 
