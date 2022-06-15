@@ -1,7 +1,12 @@
-name: push-to-docker-hub-with-cache
-on: push
+name: only-versions-are-pushed-to-DH
+on: 
+  push:
+    branches:
+      - 'main'
+    tags:
+      - 'v*'
 jobs:
-  push-to-docker-hub-with-cache:
+  only-versions-are-pushed-to-DH:
     runs-on: ubuntu-latest
     
     steps:
