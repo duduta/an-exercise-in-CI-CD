@@ -28,3 +28,5 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           push: true
           tags: ghcr.io/${{ github.actor }}/exercise:latest
+          cache-from: type=registry,ref=ghcr.io/${{ github.actor }}/exercise:buildcache
+          cache-to: type=registry,ref=ghcr.io/${{ github.actor }}/exercise:buildcache,mode=max
