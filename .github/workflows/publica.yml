@@ -1,39 +1,12 @@
-name: try-manually-triggered
+name: Publish Tagged Versions To Docker Hub 
 on: 
   push:
-    branches:
-      - 'main'
     tags:
       - 'v*'
-  workflow_dispatch:
 
 jobs:
-  manually-triggered-push-to-ghcr:
-    if: github.event_name == 'workflow_dispatch'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
 
-      - name: Login to Github Registry
-        uses: docker/login-action@v1
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Build and Push the image to Github Registry
-        uses: docker/build-push-action@v2
-        with: 
-          context: ./
-          file: ./Dockerfile
-          builder: ${{ steps.buildx.outputs.name }}
-          push: true
-          tags: ghcr.io/${{ github.actor }}/buna-lume:latest
-            # cache-from: type=registry,ref=ghcr.io/${{ github.actor }}/buna-lume:buildcache
-            # cache-to: type=registry,ref=ghcr.io/${{ github.actor }}/buna-lume:buildcache,mode=max
-
-  versions-are-pushed-to-docker-hub:
+  versions-pushed-to-docker:
     runs-on: ubuntu-latest
     
     steps:
