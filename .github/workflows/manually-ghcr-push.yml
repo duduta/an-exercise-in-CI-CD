@@ -19,6 +19,6 @@ jobs:
 
       - name: Build Image and Push to Github Registry
         run: |
-          docker build . --tag ghcr.io/duduta/buna-lume:latest
-          docker run ghcr.io/duduta/buna-lume:latest
-          docker push ghcr.io/duduta/buna-lume:latest
+          docker build . --tag ghcr.io/duduta/exercise:latest
+          docker run ghcr.io/duduta/exercise:latest
+          docker push ghcr.io/duduta/exercise:latest

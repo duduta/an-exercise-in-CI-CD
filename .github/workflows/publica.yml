@@ -30,7 +30,7 @@ jobs:
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME}}/buna-lume:latest
-          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/buna-lume:buildcache
-          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/buna-lume:buildcache,mode=max
+          tags: ${{ secrets.DOCKER_HUB_USERNAME}}/exercise:latest
+          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/exercise:buildcache
+          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/exercise:buildcache,mode=max
 
