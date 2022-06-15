@@ -17,16 +17,8 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-      
-      - name: Build and Push the image to Github Registry
-        uses: docker/build-push-action@v2
-        with: 
-          context: ./
-          file: ./Dockerfile
-          builder: ${{ steps.buildx.outputs.name }}
-          push: true
-          tags: ghcr.io/${{ github.actor }}/buna-lume:latest
-            # cache-from: type=registry,ref=ghcr.io/${{ github.actor }}/buna-lume:buildcache
-            # cache-to: type=registry,ref=ghcr.io/${{ github.actor }}/buna-lume:buildcache,mode=max
+      - name: Build Image and Push to Github Registry
+        run: |
+          docker build . --tag ghcr.io/duduta/buna-lume:latest
+          docker run ghcr.io/duduta/buna-lume:latest
+          docker push ghcr.io/duduta/buna-lume:latest
